@@ -1,3 +1,5 @@
 # ops
 Infra as Code
-ok
+
+00-state - create bucket and create file with all informations about terraform(like backup)
+
