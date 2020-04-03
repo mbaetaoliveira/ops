@@ -25,9 +25,9 @@ module "aws_vpc" {
   name = "live.smtx"
   cidr = "10.205.0.0/16"
 
-  azs              = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d"]
-  private_subnets  = ["10.205.101.0/24", "10.205.102.0/24", "10.205.103.0/24", "10.205.104.0/24"]
-  public_subnets   = ["10.205.1.0/24", "10.205.2.0/24", "10.205.3.0/24", "10.205.4.0/24"]
+  azs             = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d"]
+  private_subnets = ["10.205.101.0/24", "10.205.102.0/24", "10.205.103.0/24", "10.205.104.0/24"]
+  public_subnets  = ["10.205.1.0/24", "10.205.2.0/24", "10.205.3.0/24", "10.205.4.0/24"]
 
   enable_dns_hostnames               = true
   enable_dns_support                 = true
@@ -40,13 +40,13 @@ module "aws_vpc" {
   single_nat_gateway                 = true
 
   private_subnet_tags = {
-    "env"                                           = "${local.env}"
+    "env"         = "${local.env}"
     "subnet_type" = "Private"
     "tier"        = "private"
   }
 
   public_subnet_tags = {
-    "env"                                           = "${local.env}"
+    "env"         = "${local.env}"
     "subnet_type" = "Public"
     "tier"        = "public"
   }
