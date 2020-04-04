@@ -22,7 +22,7 @@ locals {
 module "aws_vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "live.smtx"
+  name = "live-smtx"
   cidr = "10.205.0.0/16"
 
   azs             = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d"]
