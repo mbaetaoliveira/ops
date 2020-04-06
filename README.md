@@ -7,3 +7,4 @@ Infra as Code
 
 03-bastion - create server bastion in the public subnet, security group with rules and public IP
 
+04-ecr - repositorie to build/image

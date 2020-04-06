@@ -16,7 +16,7 @@ resource "aws_security_group" "live_smtx_bation_sg" {
     to_port     = 0
     protocol    = "-1"
     description = "Office-House"
-    cidr_blocks = ["178.2.79.101/32"]
+    cidr_blocks = ["188.102.11.100/32"]
   }
 
 
