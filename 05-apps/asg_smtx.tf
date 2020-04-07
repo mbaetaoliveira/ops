@@ -3,7 +3,7 @@
 resource "aws_autoscaling_group" "asg_smtx_lt" {
   name_prefix         = "asg-smtx-lt-"
   default_cooldown    = "300"
-  desired_capacity    = 1
+  desired_capacity    = 3
   max_size            = 3
   min_size            = 1
   target_group_arns   = [aws_lb_target_group.target_smtx.arn]

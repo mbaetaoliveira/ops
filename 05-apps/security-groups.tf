@@ -70,6 +70,13 @@ resource "aws_security_group" "smtx_lb_sg" {
     cidr_blocks = ["10.205.0.0/16"]
   }
 
+  ingress {
+    from_port = 80
+    to_port   = 80
+    protocol  = "tcp"
+    //  description = "client - open"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   ingress {
     from_port = 0

@@ -18,11 +18,7 @@ sudo yum install python-pip
 sudo pip install Flask
 sudo yum -y install telnet
 
-# Create Directory
-sudo mkdir /app
-cd /app
-
-# Install Docker
+# Install Docker & Docker-compose
 
 sudo yum update -y
 sudo yum install -y docker
@@ -33,12 +29,13 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
+# Install Git
 sudo yum install git -y
 
+# Create Directory
+sudo mkdir /app
 cd /app/
-
 sudo git clone https://github.com/mbaetaoliveira/flask.git
 
 cd /flask/
-
 docker-compose up -d

@@ -10,7 +10,7 @@ resource "aws_lb_target_group" "target_smtx" {
     healthy_threshold   = 5
     interval            = 30
     matcher             = "200"
-    path                = "/rev.txt"
+    path                = "/"
     port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = 5
