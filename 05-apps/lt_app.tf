@@ -1,3 +1,14 @@
+// User Data
+data "template_file" "user_data_web" {
+  template = file("${path.module}/user-data-web.sh")
+
+  vars = {
+    hostname    = "smtx-live-AS"
+    environment = "live"
+  }
+}
+
+
 // Launch Template
 
 resource "aws_launch_template" "smtx_template" {
@@ -11,7 +22,7 @@ resource "aws_launch_template" "smtx_template" {
     resource_type = "instance"
 
     tags = {
-      Name    = "llive-smtx-app-AS"
+      Name    = "smtx-live-app-AS"
       company = "gfg"
       env     = "live"
       group   = "store"
@@ -34,4 +45,5 @@ resource "aws_launch_template" "smtx_template" {
       system  = "smtx"
     }
   }
+  user_data = filebase64("${path.module}/user-data-web.sh")
 }

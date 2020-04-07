@@ -1,29 +1,4 @@
-// Create Target Group:
-//resource "aws_lb_target_group" "target_smtx" {
-//  name                 = "smtx-hhtp-tg"
-//  vpc_id               = "${data.aws_vpc.vpc.id}"
-//  port                 = 80
-//  protocol             = "HTTP"
-//  target_type          = "instance"
-//  deregistration_delay = 30
-//  health_check {
-//    interval            = 30
-//    port                = "traffic-port"
-//    healthy_threshold   = 2
-//    unhealthy_threshold = 2
-//    protocol            = "TCP"
-//  }
-//
-//  tags = {
-//    company = "${local.company}"
-//    env     = "${local.env}"
-//    group   = "${local.group}"
-//    role    = "network"
-//    system  = "${local.system}"
-//    type    = "resource"
-//  }
-//}
-
+// Create Target
 
 resource "aws_lb_target_group" "target_smtx" {
   name     = "smtx-http-tg"

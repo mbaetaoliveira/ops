@@ -24,7 +24,7 @@ locals {
   vol_type_so          = "gp2"
   vol_size_so          = "30"
   image_id             = "ami-001efa431f19d816f"
-  app                  = "alice"
+  app                  = "app"
   SubnetType           = "Public"
 }
 
