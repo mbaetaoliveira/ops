@@ -1,4 +1,4 @@
-//Ec2
+// Security Group Ec2
 resource "aws_security_group" "live_smtx_ec2_sg" {
   name        = "live_smtx_ec2_sg"
   description = "Security Group - Live EC2 smtx"
@@ -17,6 +17,15 @@ resource "aws_security_group" "live_smtx_ec2_sg" {
     protocol    = "-1"
     description = "Office-House"
     cidr_blocks = ["178.8.173.2/32"]
+  }
+
+
+  ingress {
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    description     = "LoadBalancer"
+    security_groups = ["sg-0dc26dc52834911be"]
   }
 
 
@@ -46,7 +55,7 @@ resource "aws_security_group" "live_smtx_ec2_sg" {
 }
 
 
-// Security Group Smtx Instance
+// Security Group Load Balancer
 
 resource "aws_security_group" "smtx_lb_sg" {
   name        = "smtx-lb-sg"
@@ -57,17 +66,10 @@ resource "aws_security_group" "smtx_lb_sg" {
     from_port = 0
     to_port   = 0
     protocol  = "-1"
-    //  description = "temp"
+    //  description = "smtx-network"
     cidr_blocks = ["10.205.0.0/16"]
   }
 
-  ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
-    //  description = "temp"
-    cidr_blocks = ["172.20.0.0/16"]
-  }
 
   ingress {
     from_port = 0
@@ -77,11 +79,27 @@ resource "aws_security_group" "smtx_lb_sg" {
     cidr_blocks = ["172.31.24.213/32"]
   }
 
+  ingress {
+    from_port       = 1
+    to_port         = 65535
+    protocol        = "tcp"
+    description     = "LoadBalancer"
+    security_groups = ["sg-0dc26dc52834911be"]
+  }
+
+  ingress {
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    description     = "ec2 - app"
+    security_groups = ["sg-085b41bb1346af865"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    description = "temp"
+    description = "outbound"
     cidr_blocks = ["0.0.0.0/0"]
   }
 

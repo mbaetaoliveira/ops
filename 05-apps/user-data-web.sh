@@ -9,7 +9,7 @@ cat <<EOF >> /etc/hosts
 EOF
 
 # Set hostname
-echo ${smtx-app} > /etc/hostname ; echo ${hostname} > /proc/sys/kernel/hostname ; export HOSTNAME="${hostname}"
+echo "smtx-app" > /etc/hostname ; echo ${hostname} > /proc/sys/kernel/hostname ; export HOSTNAME="${hostname}"
 
 # Install python|pip|Flask:
 sudo yum update -y

@@ -36,7 +36,7 @@ resource "aws_lb" "lb_smtx" {
   load_balancer_type         = "application"
   internal                   = false
   enable_deletion_protection = true
-  subnets                    = element(data.aws_subnet_ids.private.*.ids, 0)
+  subnets                    = element(data.aws_subnet_ids.public.*.ids, 0)
   security_groups            = [aws_security_group.smtx_lb_sg.id]
 
   tags = {
