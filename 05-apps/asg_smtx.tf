@@ -4,8 +4,8 @@ resource "aws_autoscaling_group" "asg_smtx_lt" {
   name_prefix         = "asg-smtx-lt-"
   default_cooldown    = "300"
   desired_capacity    = 3
-  max_size            = 3
-  min_size            = 1
+  max_size            = 5
+  min_size            = 2
   target_group_arns   = [aws_lb_target_group.target_smtx.arn]
   vpc_zone_identifier = element(data.aws_subnet_ids.private.*.ids, 0)
   tags = [

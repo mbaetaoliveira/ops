@@ -25,8 +25,16 @@ You need to have `awscli` and `terraform` available and pre-configured for the w
 
 00-state - create bucket and create file with all informations about terraform(like backup)
 
+01-iam - role used by ec2
+
 02-network - create vpc and subnets public and privates
 
 03-bastion - create server bastion in the public subnet, security group with rules and public IP
 
-04-ecr - repositorie to build/image
+04-ecr - repositorie to upload build/image
+
+05-apps - create AutoScaling Group with ec2 in the private subnet, Launch Template, Application LoadBalancer and Userdata.
+
+
+
+
