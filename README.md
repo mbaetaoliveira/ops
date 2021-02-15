@@ -35,6 +35,8 @@ You need to have `awscli` and `terraform` available and pre-configured for the w
 
 05-apps - create AutoScaling Group with ec2 in the private subnet, Launch Template, Application LoadBalancer and Userdata.
 
+.
+
 
 
 
